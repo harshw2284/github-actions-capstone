@@ -16,11 +16,6 @@ jobs:
                 username: ${{ vars.DOCKERHUB_USERNAME }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-            - name: Update Trivy
-              run: |
-                sudo apt update
-                sudo apt upgrade perl
-
             - name: Trivy Scanner
               uses: aquasecurity/trivy-action@v0.36.0
               with: 
