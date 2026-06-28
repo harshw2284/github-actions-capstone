@@ -5,7 +5,7 @@ on:
 
 
 jobs:
-    deoendency-check:
+    dependency-check:
 
       runs-on: ubuntu-latest
       steps:
