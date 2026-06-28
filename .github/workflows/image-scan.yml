@@ -18,7 +18,8 @@ jobs:
 
             - name: Update Trivy
               run: |
-                sudo apt-get update && sudo apt-get --only-upgrade install perl
+                sudo apt update
+                sudo apt upgrade perl
 
             - name: Trivy Scanner
               uses: aquasecurity/trivy-action@v0.36.0
