@@ -13,7 +13,7 @@ jobs:
       - name: Set-up Python
         uses: actions/setup-python@v5
         with: 
-           pyhon-version: 3.13
+           python-version: 3.13
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
