@@ -28,7 +28,7 @@ jobs:
             docker rm health-check-container
 
         - name: Create GitHub Step Summary
-          if: always()                                   # tells a step or job to run no matter what happened in the previous steps
+          if: always()                                   # tells a step or job to run no matter what happened in the previous steps..
           run: |
             echo "## Health Check Report" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
