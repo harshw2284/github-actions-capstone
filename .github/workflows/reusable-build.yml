@@ -1,1 +1,61 @@
+name: Reusable workflow
+
+on:
+    workflow_call:
+        inputs:
+            python_version:
+                description: "Python version to use"
+                required: true
+                type: string
+
+            run_test:
+                description: "Tests to Run"
+                required: false
+                default: true
+                type: boolean
+
+        outputs:
+            test_result:
+                description: "Result of the test execution"
+                value: ${{ jobs.build.outputs.test_result }}
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        outputs:
+          test_result: ${{ steps.result.outputs.test_result }}
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+
+            - name: Setup python version
+              uses: actions/setup-python@v5
+              with:
+                python-version: ${{ inputs.python_version }}
+              
+            - name: Install dependencies
+              run: |
+                if [ -f requirements.txt ]; then
+                  pip install -r requirements.txt
+                fi
+
+            - name: Run tests
+              if: inputs.run_test
+              run: python -m pytest
+
+            - name: Set output (Passed)
+              if: success()
+              id: result
+              run: |
+                echo "test_result=passed" >> "$GITHUB_OUTPUT"
+
+            - name: Set output (Failed)
+              if: failure()
+              id: result_failed
+              run: |
+                echo "test_result=failed" >> "$GITHUB_OUTPUT"
+
+            
+
 

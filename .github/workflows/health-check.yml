@@ -1,0 +1,38 @@
+name: Health Check
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '0 */12 * * *'
+
+jobs:
+    check:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Pull Docker Image
+          run: |
+            echo "Docker image is :"
+            docker pull 
+
+        - name: Run Container in Detached mode
+          run: |
+            docker run -d --name health-check-container -p 8080:80 \
+            your-dockerhub-username/flask-app:latest
+
+        - name: Wait for application to start
+          run: sleep 5
+
+        - name: Stop and remove the container
+          run: |
+            docker stop 
+            docker rm
+
+        - name: Create GitHub Step Summary
+          if: always()                                   # tells a step or job to run no matter what happened in the previous steps.
+          run: |
+            echo "## Health Check Report" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "- **Image:** your-dockerhub-username/flask-app:latest" >> $GITHUB_STEP_SUMMARY
+            echo "- **Status:** $RESULT" >> $GITHUB_STEP_SUMMARY
+            echo "- **Time:** $(date)" >> $GITHUB_STEP_SUMMARY
+
