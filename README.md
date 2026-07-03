@@ -25,6 +25,8 @@ Runs whenever a Pull Request is opened or updated.
 - Execute unit tests
 - Display PR validation summary
 
+  [![PR pipeline](https://github.com/harshw2284/GitHub-Actions-Capstone/actions/workflows/pr-pipeline.yml/badge.svg)](https://github.com/harshw2284/GitHub-Actions-Capstone/actions/workflows/pr-pipeline.yml)
+
 ---
 
 ### 2. Main Pipeline (`main-pipeline.yml`)
@@ -77,6 +79,8 @@ It performs the following tasks:
 - Wait for application startup
 - Stop and remove the container
 - Generate a GitHub Step Summary report
+
+[![Health Check](https://github.com/harshw2284/GitHub-Actions-Capstone/actions/workflows/health-check.yml/badge.svg)](https://github.com/harshw2284/GitHub-Actions-Capstone/actions/workflows/health-check.yml)
 
 ---
 
