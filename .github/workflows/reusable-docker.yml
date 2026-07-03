@@ -4,7 +4,7 @@ on:
     workflow_call:
         inputs:
             image_name:
-                description: Name of Image
+                description: name of image
                 required: true
                 type: string
             
@@ -48,8 +48,8 @@ jobs:
               with:
                 context: .
                 push: true
-                tags: ${{ secrets.DOCKERHUB_TOKEN }}/${{inputs.image_name}}:${{inputs.tag}}
+                tags: ${{ vars.DOCKERHUB_USERNAME }}/${{inputs.image_name}}:${{inputs.tag}}
                 
             - name: Set Image URL output
               id: image
-              run: echo "image_url=${{ secrets.DOCKERHUB_TOKEN }}/${{inputs.image_name}}:${{inputs.tag}}" >> "$GITHUB_OUTPUT"
+              run: echo "image_url=${{ vars.DOCKERHUB_USERNAME }}/${{inputs.image_name}}:${{inputs.tag}}" >> "$GITHUB_OUTPUT"
