@@ -55,7 +55,3 @@ jobs:
               id: result_failed
               run: |
                 echo "test_result=failed" >> "$GITHUB_OUTPUT"
-
-            
-
-

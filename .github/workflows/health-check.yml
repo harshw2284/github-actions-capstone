@@ -12,12 +12,12 @@ jobs:
         - name: Pull Docker Image
           run: |
             echo "Docker image is :"
-            docker pull 
+            docker pull harsh9301/flask-app:72e975c24a93e929f878c62cff74ccb4504dc3e6
 
         - name: Run Container in Detached mode
           run: |
             docker run -d --name health-check-container -p 8080:80 \
-            your-dockerhub-username/flask-app:latest
+            harsh9301/flask-app:72e975c24a93e929f878c62cff74ccb4504dc3e6
 
         - name: Wait for application to start
           run: sleep 5
@@ -35,4 +35,3 @@ jobs:
             echo "- **Image:** your-dockerhub-username/flask-app:latest" >> $GITHUB_STEP_SUMMARY
             echo "- **Status:** $RESULT" >> $GITHUB_STEP_SUMMARY
             echo "- **Time:** $(date)" >> $GITHUB_STEP_SUMMARY
-
