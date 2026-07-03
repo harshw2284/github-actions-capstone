@@ -29,7 +29,7 @@ jobs:
             - name: Scan Docker Image for Vulnerabilities
               uses: aquasecurity/trivy-action@master
               with:
-                image-ref: 'your-username/your-app:latest'
+                image-ref: 'harsh9301/flask-app:711f30f7f4fa8869b090f2af5e294051441733d9'
                 format: 'table'
                 exit-code: '1'
                 severity: 'CRITICAL,HIGH'
