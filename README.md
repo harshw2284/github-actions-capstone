@@ -52,9 +52,9 @@ The goal of this project is to learn industry-standard CI/CD practices using Git
 .
 ├── .github
 │   └── workflows
-│       ├── reusable-build-test.yml
+│       ├── reusable-build.yml
 │       ├── reusable-docker.yml
-│       ├── pr.yml
+│       ├── pr-pipeline.yml
 │       ├── main-pipeline.yml
 │       └── health-check.yml
 │
@@ -63,7 +63,7 @@ The goal of this project is to learn industry-standard CI/CD practices using Git
 │
 ├── app.py
 ├── requirements.txt
-├── Dockerfile
+├── dockerfile
 ├── .dockerignore
 └── README.md
 ```
@@ -95,7 +95,7 @@ The goal of this project is to learn industry-standard CI/CD practices using Git
 Output
 
 ```text
-test_result
+
 ```
 
 ---
