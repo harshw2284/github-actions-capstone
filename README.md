@@ -2,7 +2,7 @@
 
 This project demonstrates a production-inspired CI/CD pipeline using **GitHub Actions**, **Docker**, and **reusable workflows**. The pipeline automates code validation, Docker image creation, deployment simulation, and scheduled health checks, following DevOps best practices.
 
-## 📌 Features
+## Features
 
 - ✅ Pull Request validation before merging into `main`
 - ✅ Reusable GitHub Actions workflows
@@ -13,7 +13,7 @@ This project demonstrates a production-inspired CI/CD pipeline using **GitHub Ac
 - ✅ Scheduled Docker image health checks
 - ✅ GitHub Step Summary reporting
 
-## 🔄 Workflow Overview
+## Workflow Overview
 
 ### 1. Pull Request Pipeline (`pr-pipeline.yml`)
 Runs whenever a Pull Request is opened or updated.
@@ -84,7 +84,7 @@ It performs the following tasks:
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - GitHub Actions
 - Python 3.13
@@ -96,7 +96,7 @@ It performs the following tasks:
 
 ---
 
-## 📂 Workflow Architecture
+## Workflow Architecture
 
 ```text
 Pull Request
@@ -128,7 +128,7 @@ Run Tests
 
 ---
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 This project demonstrates how to:
 
