@@ -15,9 +15,18 @@ jobs:
             python_version: 3.13
             run_test: true
 
+    dependency-scan:
+        needs: [reusable-build]
+        runs-on: ubuntu-latest
+        steps:    
+            - name: Check Dependencies for Vulnerabilities
+              uses: actions/dependency-review-action@v4
+              with:
+                fail-on-severity: critical
+
     pr-comment:
         runs-on: ubuntu-latest
-        needs: [reusable-build]
+        needs: [dependency-scan]
         steps:
             - name: print summary
               run: echo "PR checks passed for branch is ${{ github.head_ref }}"
