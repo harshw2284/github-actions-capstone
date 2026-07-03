@@ -26,6 +26,9 @@ jobs:
         needs: [reusable-docker]
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout Code
+              uses: actions/checkout@v4
+ 
             - name: Scan Docker Image for Vulnerabilities
               uses: aquasecurity/trivy-action@master
               with:
